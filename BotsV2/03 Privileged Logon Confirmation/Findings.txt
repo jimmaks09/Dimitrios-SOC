@@ -1,0 +1,12 @@
+Shortly after the brute-force activity, Windows Security Event 4672 was recorded:
+
+Timestamp: 2017-08-03 20:02:33
+Host: mercury
+Account: service3
+
+Event 4672 confirms that the logon session was assigned special privileges.
+
+This indicates that the compromised account possessed administrative-level rights.
+
+There is no evidence of privilege escalation.
+Instead, the attacker successfully authenticated using a privileged account.

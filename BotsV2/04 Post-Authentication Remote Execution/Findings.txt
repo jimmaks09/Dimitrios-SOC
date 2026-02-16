@@ -1,0 +1,32 @@
+Following the successful authentication using the service3 account on the mercury host, process execution activity consistent with remote command execution was observed.
+
+At 2017-08-03 20:06:36 UTC, the following process was launched on mercury:
+
+C:\Windows\System32\wsmprovhost.exe
+with command line:
+
+C:\Windows\system32\wsmprovhost.exe -Embedding
+
+The wsmprovhost.exe process is the WinRM Provider Host, which is spawned when commands are executed remotely via:
+
+WinRM
+PowerShell Remoting
+WMI
+
+This strongly indicates that the attacker used the compromised credentials to obtain remote command execution on the mercury system.
+Supporting Activity
+Shortly after the wsmprovhost.exe execution, additional system commands were observed, including:
+
+cmd.exe
+netstat -nao
+findstr "LISTENING"
+WmiPrvSE.exe
+
+These commands are commonly used by attackers for:
+enumerating listening ports identifying running services
+performing system discovery and confirm active remote interaction with the host.
+
+Conclusion
+
+Log evidence shows that after the brute force authentication and successful login, the attacker executed commands remotely on mercury using WinRM/WMI mechanisms.
+This confirms that in Phase 4 the attacker achieved remote execution on the system and began post-compromise reconnaissance.

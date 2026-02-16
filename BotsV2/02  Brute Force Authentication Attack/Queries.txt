@@ -1,0 +1,12 @@
+Failed Attempt logins Source Ip Target Account Name and Event Code
+index=botsv2 sourcetype="wineventlog:security" EventCode=4625
+| sort 0 _time
+| head 20
+| table _time Account_Name Source_Network_Address host EventCode
+
+Successful login Source Ip Target Account Name and Event Code
+
+index=botsv2 sourcetype="wineventlog:security" EventCode=4624
+| sort 0 _time
+| head 20
+| table _time Account_Name Source_Network_Address host EventCode

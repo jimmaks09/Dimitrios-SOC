@@ -1,0 +1,18 @@
+On 24 Aug 2017, suspicious PowerShell activity was observed on the compromised host MERCURY running under the machine account MERCURY$.
+
+At 05:55:14 UTC, an encoded PowerShell command was executed. Analysis shows that the script disabled AMSI protections, bypassed certificate validation, and contacted the external server 45.77.65.211 over HTTPS to download an encrypted payload. The payload was decrypted and executed directly in memory using IEX, indicating fileless malware execution.
+
+Later at 06:24:00 UTC, another hidden PowerShell command executed code retrieved from the registry key:
+
+HKLM:\Software\Microsoft\Network debug
+
+
+This confirms that malicious code had been stored in the registry and executed from memory, a common attacker technique to evade detection and maintain stealthy execution.
+
+In addition, the account service3 launched:
+
+ftp.exe -i -s:winsys32.dll
+
+This suggests scripted FTP activity using a disguised file, likely related to attacker tooling or data staging.
+
+Overall, these events show that the attacker used multiple defense-evasion techniques on MERCURY, including AMSI bypass, encoded PowerShell, registry-based payload storage, and encrypted external communication.

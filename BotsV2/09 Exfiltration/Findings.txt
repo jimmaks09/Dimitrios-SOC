@@ -1,0 +1,5 @@
+The attacker initiated a scripted FTP session on the compromised host MERCURY using ftp.exe -i -s:winsys32.dll.
+
+The -s parameter indicates execution of FTP commands from a file, suggesting automated file transfer activity.
+
+This behavior is consistent with data exfiltration or payload staging via FTP following successful compromise.

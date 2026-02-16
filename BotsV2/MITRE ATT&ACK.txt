@@ -1,0 +1,41 @@
+Compromised Host: MERCURY
+Domain: FROTHLY
+
+Phase 1 — Initial Reconnaissance  
+Technique: T1046 — Network Service Discovery  
+Evidence: netstat enumeration of listening ports
+
+Phase 2 — Brute Force Authentication  
+Technique: T1110 — Brute Force  
+Evidence: abnormal authentication attempts against privileged accounts
+
+Phase 3 — Privileged Logon  
+Technique: T1078 — Valid Accounts  
+Evidence: successful privileged execution context on MERCURY
+
+Phase 4 — Remote Execution (WinRM)  
+Technique: T1021.006 — Windows Remote Management  
+Evidence: repeated wsmprovhost.exe executions
+
+Phase 5 — Defense Evasion & Persistence  
+Techniques:  
+T1059.001 — PowerShell  
+T1562 — Impair Defenses  
+T1053 — Scheduled Task / Persistence  
+
+Evidence:  
+- obfuscated PowerShell payload  
+- AMSI bypass  
+- scheduled task deletion  
+- registry modifications
+
+Phase 6 — Discovery  
+Techniques:  
+T1082 — System Information Discovery  
+T1016 — Network Discovery  
+
+Evidence: whoami, netstat enumeration
+
+Phase 7 — Exfiltration  
+Technique: T1048 — Exfiltration Over Alternative Protocol  
+Evidence: ftp.exe scripted transfer (-s parameter)

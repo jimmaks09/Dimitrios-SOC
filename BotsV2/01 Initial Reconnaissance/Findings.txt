@@ -1,0 +1,27 @@
+Phase 1 – Internal Reconnaissance
+Earliest Observed Activity
+
+The first suspicious network activity was observed at:
+
+2017-08-03 20:02:00 UTC
+
+Host 10.0.1.1 initiated DCERPC communication with host 10.0.1.100 on TCP port 49155.
+
+Port 49155 is an ephemeral RPC port typically negotiated after communication with the RPC Endpoint Mapper (Port 135).
+
+IDS Detection
+
+At:2017-08-03 20:02:17 UTC
+
+Suricata generated the following alert:
+ET SCAN Behavioral Unusual Port 135 traffic Potential Scan or Infection
+
+This indicates abnormal RPC enumeration behavior consistent with lateral movement preparation.
+
+Assessment
+
+No external inbound traffic to 10.0.1.1 was observed prior to this activity.
+
+The host was likely compromised before dataset capture.
+
+Activity is consistent with internal reconnaissance and service enumeration.

