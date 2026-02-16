@@ -68,7 +68,7 @@ I am developing hands-on SOC skills through TryHackMe SOC Level 1 labs and struc
 ## Certifications
 
 - CompTIA Security+ (in progress) Goal to achieve April
-- BTL1 (in progress) Goal to Achive Juny
+- BTL1 (in progress) Goal to Achieve Juny
 - TryHackMe SOC Level 1 Path
 
 ---
